@@ -62,7 +62,7 @@ gulp.task('watch', function() {
 });
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch', 'scripts', 'styles', 'html']);
+gulp.task('default', ['jshint', 'sass', 'scripts', 'styles', 'html', 'watch']);
 
 // Build task
 gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images']);
