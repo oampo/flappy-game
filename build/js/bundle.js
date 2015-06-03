@@ -10,7 +10,7 @@ BirdGraphicsComponent.prototype.draw = function() {
 exports.BirdGraphicsComponent = BirdGraphicsComponent;
 },{}],2:[function(require,module,exports){
 var graphicsComponent = require("../components/graphics/birds");
-
+console.log(graphicsComponent);
 var Bird = function() {
     console.log("Creating Bird entity");
 
@@ -23,7 +23,9 @@ var Bird = function() {
 exports.Bird = Bird;
 },{"../components/graphics/birds":1}],3:[function(require,module,exports){
 var graphicsSystem = require('./systems/graphics');
+console.log(graphicsSystem);
 var bird = require('./entities/birds');
+console.log(bird);
 
 var FlappyBird = function() {
 	this.entities = [new bird.Bird()];

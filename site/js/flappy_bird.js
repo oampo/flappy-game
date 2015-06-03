@@ -1,5 +1,5 @@
 var graphicsSystem = require('./systems/graphics');
-var bird = require('./entities/birds');
+var bird = require('./entities/bird');
 
 var FlappyBird = function() {
 	this.entities = [new bird.Bird()];
