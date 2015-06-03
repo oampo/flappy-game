@@ -12,7 +12,7 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-var bundler = browserify({entries: './js/main.js'}, watchify.args);
+var bundler = browserify({entries: 'site/js/main.js'}, watchify.args); 
 // JavaScript linting task
 gulp.task('jshint', function() {
   return gulp.src('site/js/*.js')
