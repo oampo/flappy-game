@@ -13,8 +13,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 var bundler = browserify({entries: './app/js/main.js'}, watchify.args);
-// var bundler = browserify({entries: './js/main.js'}, watchify.args);
-// var w = watchify(bundler); 
+
 // JavaScript linting task
 gulp.task('jshint', function() {
   return gulp.src('app/js/**/*.js')
@@ -53,7 +52,7 @@ gulp.task('watchify', function() {
 gulp.task('scripts', function(){
   return bundler
     .bundle()
-    .pipe(concat('./build/main.js'))
+    .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
 });
