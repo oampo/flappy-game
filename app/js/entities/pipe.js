@@ -1,4 +1,4 @@
-var graphicsComponent = require("./js/components/graphics/pipe");
+var graphicsComponent = require("./components/graphics/pipe");
 var Pipe = function() {
 	console.log("Creating Pipe entity");
 
