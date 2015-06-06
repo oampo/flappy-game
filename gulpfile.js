@@ -16,7 +16,7 @@ var bundler = browserify({entries: 'build/js/main.js'}, watchify.args);
 var w = watchify(bundler); 
 // JavaScript linting task
 gulp.task('jshint', function() {
-  return gulp.src('app/js/*.js')
+  return gulp.src('app/js/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -37,7 +37,7 @@ gulp.task('html', function() {
 
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
-  return gulp.src('app/js/*.js')
+  return gulp.src('app/js/**/*.js')
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
@@ -59,7 +59,7 @@ gulp.task('images', function() {
 
 // Watch task
 gulp.task('watch', function() {
-  gulp.watch('app/js/*.js', ['jshint']);
+  gulp.watch('app/js/**/*.js', ['jshint']);
   gulp.watch('app/scss/*.scss', ['sass']);
   gulp.watch('app/css/*.css', ['styles']);
 });
