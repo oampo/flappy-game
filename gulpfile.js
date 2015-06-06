@@ -12,7 +12,8 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-var bundler = browserify({entries: 'build/js/main.js'}, watchify.args);
+var bundler = browserify({entries: './app/js/main.js'}, watchify.args);
+// var bundler = browserify({entries: './js/main.js'}, watchify.args);
 // var w = watchify(bundler); 
 // JavaScript linting task
 gulp.task('jshint', function() {
@@ -38,7 +39,7 @@ gulp.task('html', function() {
 gulp.task('watchify', function() {
     var watcher = watchify(bundler);
     watcher.on('update', function() {
-        gulp.start('js');
+        gulp.start('scripts');
     });
 });
 // JavaScript build task, removes whitespace and concatenates all files
@@ -52,7 +53,7 @@ gulp.task('watchify', function() {
 gulp.task('scripts', function(){
   return bundler
     .bundle()
-    .pipe(concat('main.js'))
+    .pipe(concat('./build/main.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
 });
@@ -72,9 +73,9 @@ gulp.task('images', function() {
 });
 
 // Watch task
-gulp.task('watch', ['watchify', 'js', 'css'], function() {
-  gulp.watch('app/js/**/*.js', ['jshint']);
-  gulp.watch('app/scss/*.scss', ['sass']);
+gulp.task('watch', ['watchify', 'scripts', 'styles'], function() {
+  // gulp.watch('app/js/**/*.js', ['jshint']);
+  // gulp.watch('app/scss/*.scss', ['sass']);
   gulp.watch('app/css/*.css', ['styles']);
 });
 
