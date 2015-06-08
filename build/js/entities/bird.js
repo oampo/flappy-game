@@ -1,0 +1,1 @@
+var graphicsComponent=require("../components/graphics/bird"),Bird=function(){console.log("Creating Bird entity");var i=new graphicsComponent.BirdGraphicsComponent(this);this.components={graphics:i}};exports.Bird=Bird;

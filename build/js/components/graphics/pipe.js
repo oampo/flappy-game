@@ -1,0 +1,1 @@
+var PipeGraphicsComponent=function(o){this.entity=o};PipeGraphicsComponent.prototype.draw=function(){console.log("Drawing a Pipe")},exports.PipeGraphicsComponent=PipeGraphicsComponent;

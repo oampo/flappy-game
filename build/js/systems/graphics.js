@@ -1,0 +1,1 @@
+var GraphicsSystem=function(t){this.entities=t};GraphicsSystem.prototype.run=function(){for(var t=0;5>t;t++)this.tick()},GraphicsSystem.prototype.tick=function(){for(var t=0;t<this.entities.length;t++){var i=this.entities[t];!1 in i.components||i.components.graphics.draw(this.context)}},exports.GraphicsSystem=GraphicsSystem;

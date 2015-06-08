@@ -1,0 +1,1 @@
+var graphicsComponent=require("../components/graphics/pipe"),Pipe=function(){console.log("Creating Pipe entity");var e=new graphicsComponent.PipeGraphicsComponent(this);this.components={graphics:e}};exports.Pipe=Pipe;
