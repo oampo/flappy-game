@@ -4,7 +4,7 @@ var bird = require('./entities/bird');
 
 var FlappyBird = function() {
 	this.entities = [new bird.Bird()];
-	this.graphics = new graphicsSystem.graphicsSystem(this.entities);
+	this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
 };
 
 FlappyBird.prototype.run = function() {

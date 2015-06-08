@@ -5,7 +5,7 @@ var browserSync = require('browser-sync').create();
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
-// var browserify = require('browserify');
+var browserify = require('browserify');
 // var watchify = require('watchify');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
@@ -14,7 +14,7 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-// var bundler = browserify({entries: './js/main.js'}, watchify.args);
+var bundler = browserify('./js/main.js').bundle();
 
 // Static server
 gulp.task('browser-sync', function() {
@@ -45,28 +45,22 @@ gulp.task('html', function() {
     .pipe(gulp.dest('build/'));
 });
 
-// gulp.task('watchify', function() {
-//     var watcher = watchify(bundler);
-//     watcher.on('update', function() {
-//         gulp.start('scripts');
-//     });
-// });
 
-// JavaScript build task, removes whitespace and concatenates all files
-gulp.task('scripts', function() {
-  return gulp.src('js/**/*.js')
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./build/js'));
-});
-
-// gulp.task('scripts', function(){
-//   return bundler
-//     .bundle()
+// // JavaScript build task, removes whitespace and concatenates all files
+// gulp.task('scripts', function() {
+//   return gulp.src('js/**/*.js')
 //     .pipe(concat('main.js'))
 //     .pipe(uglify())
 //     .pipe(gulp.dest('./build/js'));
 // });
+
+gulp.task('scripts', function(){
+  return bundler
+    .bundle()
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
+});
 
 // Styles build task, concatenates all the files
 gulp.task('styles', function() {
