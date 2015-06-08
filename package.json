@@ -11,6 +11,8 @@
   "devDependencies": {
     "browser-sync": "^2.7.6",
     "browserify": "^10.2.4",
+    "factor": "0.0.1",
+    "factor-bundle": "^2.4.1",
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
     "gulp-concat": "^2.5.2",
