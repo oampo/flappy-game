@@ -11,6 +11,8 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
+var bundler = browserify({entries: './site/js/main.js'});
+
 // JavaScript linting task
 gulp.task('jshint', function() {
   return gulp.src('site/js/*.js')
@@ -34,9 +36,9 @@ gulp.task('html', function() {
 
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
-  return gulp.src('site/js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+  return bundler
+    .bundle()
+    .source('main.js')
     .pipe(gulp.dest('./build/js'));
 });
 
